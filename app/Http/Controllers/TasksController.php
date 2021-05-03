@@ -90,7 +90,7 @@ class TasksController extends Controller
         // トップページへリダイレクトさせる
         return redirect('/');
     }
-
+    
     public function destroy($id)
     {
         // idの値でタスクを検索して取得
@@ -101,4 +101,5 @@ class TasksController extends Controller
         // トップページへリダイレクトさせる
         return redirect('/');
     }
+    
 }
