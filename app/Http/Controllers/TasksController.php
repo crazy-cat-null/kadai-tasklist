@@ -75,7 +75,9 @@ class TasksController extends Controller
     }
 
        public function update(Request $request, $id)
-    {   $request-> validate([
+    {   
+        
+        $request-> validate([
         'content' => 'required|max:255',
         'status' => 'required|max:10'
         ]);
@@ -86,6 +88,7 @@ class TasksController extends Controller
         $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
+        
 
         // トップページへリダイレクトさせる
         return redirect('/');
