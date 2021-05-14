@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use App\Http\Requests\StoreBlogPost;
 
 class TasksController extends Controller
 {
@@ -35,12 +36,11 @@ class TasksController extends Controller
     }
 
     // postでtask/にアクセスされた場合の「新規登録処理」
-    public function store(Request $request)
-    {   $request-> validate([
-        'content' => 'required|max:255',
-        'status' => 'required|max:10'
-        ]);
+    public function store(StoreBlogPost $request)
+    {   $validated = $request->validated();
     
+        //dd($validated); 
+        
         // taskを作成
         $task = new Task;
         $task->status = $request->status;
@@ -74,13 +74,9 @@ class TasksController extends Controller
         ]);
     }
 
-       public function update(Request $request, $id)
+       public function update(StoreBlogPost $request, $id)
     {   
-        
-        $request-> validate([
-        'content' => 'required|max:255',
-        'status' => 'required|max:10'
-        ]);
+        $validated = $request->validated();
         
         // idの値でタスクを検索して取得
         $task = Task::findOrFail($id);
