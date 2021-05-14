@@ -16,15 +16,11 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             {{-- タスク一覧ページ＝トップへのリンク --}}
-                            <li class="dropdown-item">{!! link_to_route('tasks.index', 'タスク一覧', [], ['class' => 'dropdown-item']) !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('tasks.index', 'タスク一覧') !!}</li>
                             {{-- タスク作成ページへのリンク --}}
-                            <li class="dropdown-item">{!! link_to_route('tasks.create', '新規タスクの投稿', [], ['class' => 'dropdown-item']) !!}</li>
-                    
-                            {{-- ユーザ詳細ページへのリンク --}}
-                            <li class="dropdown-item"><a href="#">My profile</a></li>
-                            <li class="dropdown-divider"></li>
+                            <li class="dropdown-item">{!! link_to_route('tasks.create', '新規タスクの投稿') !!}</li>
                             {{-- ログアウトへのリンク --}}
-                            <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+                            <li class="dropdown-item">{!! link_to_route('logout.get', 'ログアウト') !!}</li>
                         </ul>
                     </li>
                 @else
