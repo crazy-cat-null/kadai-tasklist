@@ -73,6 +73,9 @@ class TasksController extends Controller
             'task' => $task,
         ]);
         }
+        else{
+            return redirect('/');
+        }
     }
 
      public function edit($id)
@@ -85,6 +88,9 @@ class TasksController extends Controller
             return view('tasks.edit', [
             'task' => $task,
         ]);
+        }
+        else{
+            return redirect('/');
         }
     }
 
